@@ -102,7 +102,9 @@ not_activated.request_a_new_activation_code = wneud cais am god cychwyn newydd
 #######################################################
 
 card.you_may_have_returns_to_complete = Efallai bod gennych Ffurflenni Treth i’w llenwi.
-card.complete_corporation_tax_return = Llenwi Ffurflen Treth Gorfforaeth
+card.complete_corporation_tax_return_prefix = Llenwch eich Ffurflen Treth Gorfforaeth gan ddefnyddio meddalwedd fasnachol. Bwrw golwg dros restr o
+card.complete_corporation_tax_return = gyflenwyr meddalwedd a gydnabyddir gan CThEF.
+card.complete_corporation_tax_return_old = Llenwi Ffurflen Treth Gorfforaeth
 
 card.you_are = Rydych
 card.in_credit = mewn credyd.
