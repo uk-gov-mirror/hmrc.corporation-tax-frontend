@@ -52,12 +52,12 @@ class AccountSummaryViewSpec extends ViewSpecBase with DateUtil with Injecting{
 
   "Account summary" when {
     "there is a user" should {
-      "display the link to file a return (cato)" in {
+      "display the link to file a return using HMRC-recognised software suppliers" in {
         assertLinkById(
           asDocument(view()),
-          "ct-file-return-cato",
+          "ct-file-return",
           "Complete Corporation Tax return",
-          "http://localhost:9030/cato",
+          "https://www.gov.uk/government/publications/corporation-tax-commercial-software-suppliers",
           expectedRole = "button"
         )
       }

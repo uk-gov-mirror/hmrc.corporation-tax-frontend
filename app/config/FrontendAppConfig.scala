@@ -77,6 +77,7 @@ class FrontendAppConfig @Inject()(config: ServicesConfig,
 
   lazy val languageTranslationEnabled: Boolean = config.getBoolean("toggles.welsh-translation")
   lazy val bankPaymentFeatureSwitch: Boolean = config.getBoolean("toggles.bankPaymentFeatureSwitch")
+  lazy val decommissioningCATOFeatureSwitch: Boolean = config.getBoolean("toggles.decommissioningCATOFeatureSwitch")
 
   def languageMap: Map[String, Lang] = Map("english" -> Lang("en"), "cymraeg" -> Lang("cy"))
 

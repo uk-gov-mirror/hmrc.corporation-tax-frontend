@@ -28,8 +28,12 @@
 
 <section>
     <h2 class="govuk-heading-m">@messages("account.summary.your_returns")</h2>
-    <a class="govuk-link govuk-button" id="ct-file-return-cato"
-        href='@appConfig.getUrl("fileAReturn")'
+    <a class="govuk-link govuk-button" id="ct-file-return"
+        href="@{
+          if(appConfig.decommissioningCATOFeatureSwitch)
+              appConfig.getUrl("fileAReturn")
+          else
+              appConfig.getUrl("fileAReturnOld")}"
         class="button"
         role="button">
         @Html(Messages("account.summary.file_a_return"))

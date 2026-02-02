@@ -102,7 +102,9 @@ not_activated.request_a_new_activation_code = request a new activation code
 #######################################################
 
 card.you_may_have_returns_to_complete = You may have returns to complete.
-card.complete_corporation_tax_return = Complete Corporation Tax return
+card.complete_corporation_tax_return_prefix = Complete your Corporation Tax return using commercial software. View the list of
+card.complete_corporation_tax_return = HMRC-recognised software suppliers.
+card.complete_corporation_tax_return_old = Complete Corporation Tax return
 
 card.you_are = You are
 card.in_credit = in credit.

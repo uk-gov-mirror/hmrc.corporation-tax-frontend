@@ -56,14 +56,14 @@ class CtPartialBuilderSpec extends ViewSpecBase with GuiceOneAppPerSuite with Mo
       ),
       messageReferenceKey = Some(""),
       paymentsPartial = Some("Payments partial"),
-      returnsPartial = Some("\n\n<p>You may have returns to complete.</p>\n<a id=\"ct-complete-return\" href=\"http://testReturnsUrl\"\n  target=\"_blank\" rel=\"external noopener\">\nComplete Corporation Tax return\n</a>\n")
+      returnsPartial = Some("\n\n<p>You may have returns to complete.</p>\n<a id=\"ct-complete-return-old\" href=\"http://testReturnsUrl\"\n  target=\"_blank\" rel=\"external noopener\">\nComplete Corporation Tax return\n</a>\n")
     )
 
     def requestWithEnrolment(activated: Boolean): AuthenticatedRequest[AnyContent] = {
       AuthenticatedRequest[AnyContent](FakeRequest(), "", ctEnrolment)
     }
 
-    when(config.getUrl("fileAReturn")).thenReturn("http://localhost:9030/cato")
+    when(config.getUrl("fileAReturnOld")).thenReturn("http://localhost:9030/cato")
     when(config.getUrl("mainPage")).thenReturn("http://localhost:9731/business-account/corporation-tax")
     when(config.getPortalUrl("balance")(ctEnrolment)(fakeRequestWithEnrolments))
       .thenReturn("http://localhost:8081/portal/corporation-tax/org/utr/account/balanceperiods?lang=eng")
@@ -80,7 +80,7 @@ class CtPartialBuilderSpec extends ViewSpecBase with GuiceOneAppPerSuite with Mo
 
       assertLinkById(
         doc,
-        linkId = "ct-complete-return",
+        linkId = "ct-complete-return-old",
         expectedText = "Complete Corporation Tax return",
         expectedUrl = "http://localhost:9030/cato",
         expectedIsExternal = true,
