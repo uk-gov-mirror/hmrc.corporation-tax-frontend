@@ -67,6 +67,8 @@ subpage.no_longer_use_personal_credit_card=Ni allwch ddefnyddio cerdyn credyd pe
 ##  Account Summary
 #######################################################
 account.summary.file_a_return = Llenwi Ffurflen Dreth Gorfforaeth
+account.summary.file_a_return_prefix = Llenwch eich Ffurflen Dreth gan ddefnyddio
+account.summary.file_a_return_link = meddalwedd fasnachol sy’n gweithio gyda Threth Gorfforaeth.
 account.summary.make_a_payment = Gwneud taliad Treth Gorfforaeth
 
 account.summary.your_returns = Eich Ffurflenni Treth

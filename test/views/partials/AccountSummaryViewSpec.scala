@@ -56,9 +56,8 @@ class AccountSummaryViewSpec extends ViewSpecBase with DateUtil with Injecting{
         assertLinkById(
           asDocument(view()),
           "ct-file-return",
-          "Complete Corporation Tax return",
+          "commercial software that works with Corporation Tax.",
           "https://www.gov.uk/government/publications/corporation-tax-commercial-software-suppliers",
-          expectedRole = "button"
         )
       }
 

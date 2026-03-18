@@ -28,16 +28,21 @@
 
 <section>
     <h2 class="govuk-heading-m">@messages("account.summary.your_returns")</h2>
-    <a class="govuk-link govuk-button" id="ct-file-return"
-        href="@{
-          if(appConfig.decommissioningCATOFeatureSwitch)
-              appConfig.getUrl("fileAReturn")
-          else
-              appConfig.getUrl("fileAReturnOld")}"
-        class="button"
+
+    @if(appConfig.decommissioningCATOFeatureSwitch) {
+      <p class="govuk-body">
+          @messages("account.summary.file_a_return_prefix")
+          <a class="govuk-link" id="ct-file-return" href='@appConfig.getUrl("fileAReturn")'>
+             @messages("account.summary.file_a_return_link")
+          </a>
+      </p>
+    } else {
+    <a class="govuk-link govuk-button" id="ct-file-return-old"
+       href='@appConfig.getUrl("fileAReturnOld")'
         role="button">
         @Html(Messages("account.summary.file_a_return"))
     </a>
+    }
 </section>
 <section>
     <h2 class="govuk-heading-m">@messages("account.summary.your_payments")</h2>
@@ -51,7 +56,7 @@
     </p>
     @payment_history(maybePaymentHistory, appConfig )
     <a class="govuk-link govuk-button" id="ct-make-payment-link"
-        href="@appConfig.getUrl("mainPage")/make-a-payment"
+        href='@appConfig.getUrl("mainPage")/make-a-payment'
         data-sso="false"
         class="button button--payment"
         role = "button">

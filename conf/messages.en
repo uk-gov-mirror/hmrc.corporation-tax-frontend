@@ -67,6 +67,8 @@ subpage.no_longer_use_personal_credit_card=You can no longer use a personal cred
 ##  Account Summary
 #######################################################
 account.summary.file_a_return = Complete Corporation Tax return
+account.summary.file_a_return_prefix = Complete your return using
+account.summary.file_a_return_link = commercial software that works with Corporation Tax.
 account.summary.make_a_payment = Make a Corporation Tax payment
 
 account.summary.your_returns = Your returns
