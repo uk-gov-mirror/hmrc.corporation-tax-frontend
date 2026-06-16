@@ -82,7 +82,7 @@
         case "cy" => Cy
     }
 
-    if(appConfig.languageTranslationEnabled) {
+    if(appConfig.languageTranslationEnabled && !appConfig.isServiceNavigationEnabled) {
         hmrcLanguageSelect(LanguageSelect(
             playLangToUiLanguage(messages.lang),
             appConfig.languageLinks: _*
@@ -119,9 +119,10 @@
 
 @govukTemplate(pageTitle = Some(title),
     headerBlock = hmrcStandardHeader(
-    serviceName = Some(messages("site.service_name")),
-    serviceUrl = Some(appConfig.getTarUrl),
-    signOutUrl = Some(appConfig.getBusinessAccountUrl("signout"))
+        serviceName = Some(messages("site.service_name")),
+        serviceUrl = Some(appConfig.getTarUrl),
+        signOutUrl = Some(appConfig.getBusinessAccountUrl("signout")),
+        isWelshTranslationAvailable = true
     ),
     bodyEndBlock = Some(bodyEnd),
     footerBlock = footerDefault,
