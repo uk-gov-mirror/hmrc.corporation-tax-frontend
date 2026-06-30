@@ -97,4 +97,5 @@ class FrontendAppConfig @Inject()(config: ServicesConfig,
     )
   }
 
+  lazy val isServiceNavigationEnabled: Boolean = config.getBoolean("play-frontend-hmrc.forceServiceNavigation")
 }
