@@ -16,6 +16,8 @@
 
 @import uk.gov.hmrc.govukfrontend.views.html.components._
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcUserResearchBanner
+@import uk.gov.hmrc.hmrcfrontend.views.Aliases.UserResearchBanner
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers._
 @import uk.gov.hmrc.hmrcfrontend.views.viewmodels.language.{Cy, En, LanguageSelect}
 
@@ -27,8 +29,8 @@
         hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
         hmrcLanguageSelect: HmrcLanguageSelect,
         hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
-        hmrcScripts: HmrcScripts)
-
+        hmrcScripts: HmrcScripts,
+        hmrcUserResearchBanner:HmrcUserResearchBanner)
 
 @(appConfig: config.FrontendAppConfig,
         title: String,
@@ -40,7 +42,8 @@
         mainContent: Option[Html] = None,
         headBlock: Option[Html] = None,
         serviceInfoContent: Option[Html] = None,
-        scriptElem: Option[Html] = None)(implicit request: Request[_], messages: Messages)
+        scriptElem: Option[Html] = None,
+        urBanner: Option[UserResearchBanner]= None)(implicit request: Request[_], messages: Messages)
 
 @head = {
 
@@ -122,7 +125,8 @@
         serviceName = Some(messages("site.service_name")),
         serviceUrl = Some(appConfig.getTarUrl),
         signOutUrl = Some(appConfig.getBusinessAccountUrl("signout")),
-        isWelshTranslationAvailable = true
+        isWelshTranslationAvailable = true,
+        additionalBannersBlock = if(appConfig.isUrBannerEnabled) urBanner.map(hmrcUserResearchBanner(_)) else None
     ),
     bodyEndBlock = Some(bodyEnd),
     footerBlock = footerDefault,

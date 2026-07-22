@@ -16,6 +16,7 @@
 
 @import config.FrontendAppConfig
 @import models.CtEnrolment
+@import utils.UrBannerUtil
 
 @this(
     main_template: main_template
@@ -52,7 +53,8 @@
         appConfig = appConfig,
         bodyClasses = Some("business-tax"),
         sidebarLinks = Some(sidebarLinks),
-        serviceInfoContent = Some(serviceInfoContent)) {
+        serviceInfoContent = Some(serviceInfoContent),
+        urBanner = UrBannerUtil.getUrBanner()(appConfig, messages)) {
 
         @components.heading("ct-details", "subpage.heading", "govuk-heading-xl")
         <div class="govuk-inset-text" id="payments-notice">
