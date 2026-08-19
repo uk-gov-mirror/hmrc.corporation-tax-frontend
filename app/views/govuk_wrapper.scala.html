@@ -1,5 +1,5 @@
 @*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
  *@
 
 @import uk.gov.hmrc.govukfrontend.views.html.components._
-@import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcLanguageSelect
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.HmrcUserResearchBanner
 @import uk.gov.hmrc.hmrcfrontend.views.Aliases.UserResearchBanner
 @import uk.gov.hmrc.hmrcfrontend.views.html.helpers._
@@ -27,7 +26,6 @@
         govukFooter: HmrcStandardFooter,
         hmrcStandardHeader: HmrcStandardHeader,
         hmrcReportTechnicalIssueHelper: HmrcReportTechnicalIssueHelper,
-        hmrcLanguageSelect: HmrcLanguageSelect,
         hmrcTimeoutDialogHelper: HmrcTimeoutDialogHelper,
         hmrcScripts: HmrcScripts,
         hmrcUserResearchBanner:HmrcUserResearchBanner)
@@ -47,15 +45,15 @@
 
 @head = {
 
-@hmrcTimeoutDialogHelper(
-    signOutUrl = "/business-account/timeout",
-    keepAliveUrl = Some("/business-account/keep-alive"),
-    timeout = Some(appConfig.sessionTimeoutInSeconds),
-    countdown = Some(appConfig.sessionCountdownInSeconds),
-    title = Some(messages("timeout.title")),
-    message = Some(messages("timeout.message")),
-    keepAliveButtonText = Some(messages("timeout.keep-alive-button"))
-)
+    @hmrcTimeoutDialogHelper(
+        signOutUrl = "/business-account/timeout",
+        keepAliveUrl = Some("/business-account/keep-alive"),
+        timeout = Some(appConfig.sessionTimeoutInSeconds),
+        countdown = Some(appConfig.sessionCountdownInSeconds),
+        title = Some(messages("timeout.title")),
+        message = Some(messages("timeout.message")),
+        keepAliveButtonText = Some(messages("timeout.keep-alive-button"))
+    )
 
     <!--[if lte IE 8]><link href='@controllers.routes.Assets.versioned("stylesheets/application-ie-8.css")' rel="stylesheet" type="text/css" /><![endif]-->
     <!--[if gt IE 8]><!--><link href='@controllers.routes.Assets.versioned("stylesheets/application.css")' media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
@@ -63,8 +61,6 @@
     <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/corporationtaxfrontend-app.css")'/>
 
 }
-
-
 
 @bodyEnd = {
     @hmrcScripts(scriptElem)
@@ -76,22 +72,15 @@
 
 @beforeContentBlock = {
     <div class="centered-content soft--ends">
-    @serviceInfoContent
+        @serviceInfoContent
     </div>
 
-@{
-    def playLangToUiLanguage(l: Lang) = l.code match {
-        case "en" => En
-        case "cy" => Cy
+    @{
+        def playLangToUiLanguage(l: Lang) = l.code match {
+            case "en" => En
+            case "cy" => Cy
+        }
     }
-
-    if(appConfig.languageTranslationEnabled && !appConfig.isServiceNavigationEnabled) {
-        hmrcLanguageSelect(LanguageSelect(
-            playLangToUiLanguage(messages.lang),
-            appConfig.languageLinks: _*
-        ))
-    }
-}
 }
 
 
